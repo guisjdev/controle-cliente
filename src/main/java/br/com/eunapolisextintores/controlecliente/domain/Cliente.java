@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import org.hibernate.validator.constraints.br.CNPJ;
 
+import br.com.eunapolisextintores.controlecliente.application.api.ClienteRequest;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,6 +34,15 @@ public class Cliente {
 	@NotBlank
 	private String whatsapp;
 	
+	public Cliente (ClienteRequest clienteRequest){
+		
+		this.nome = clienteRequest.getNome();
+		this.cnpj = clienteRequest.getCnpj();
+		this.logradouro = clienteRequest.getLogradouro();
+		this.cidade = clienteRequest.getCidade();
+		this.whatsapp = clienteRequest.getWhatsapp();
+	}
+	
 	public Cliente(@NotBlank String nome, @NotBlank @CNPJ String cnpj, @NotBlank String logradouro,
 			@NotBlank String cidade, @NotBlank String whatsapp) {
 	
@@ -42,4 +52,5 @@ public class Cliente {
 		this.cidade = cidade;
 		this.whatsapp = whatsapp;
 	}
+	
 }

@@ -3,10 +3,8 @@ package br.com.eunapolisextintores.controlecliente.application.api;
 import org.hibernate.validator.constraints.br.CNPJ;
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.Builder;
 import lombok.Value;
 
-@Builder
 @Value
 public class ClienteRequest {
 
