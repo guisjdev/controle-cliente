@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,5 +23,9 @@ public interface ClienteAPI {
 
 	@GetMapping
 	@ResponseStatus(code = HttpStatus.OK)
-	List<ClienteListResponse> getTodosClientes ();
+	List<ClienteListResponse> getTodosClientes();
+	
+	@GetMapping(value = "/{cnpj}")
+	@ResponseStatus(code = HttpStatus.OK)
+	ClienteDetalhadoResponse getAtravesCnpj(@PathVariable String cnpj);
 }

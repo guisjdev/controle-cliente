@@ -30,4 +30,13 @@ public class ClienteController implements ClienteAPI {
 		log.info("[Finaliza] Cliente Controller - getTodosClientes");		
 		return clientes;
 	}
+
+	@Override
+	public ClienteDetalhadoResponse getAtravesCnpj(String cnpj) {
+		log.info("[Inicia] Cliente Controller - getAtravesCnpj");
+		log.info("[CNPJ] {}", cnpj);
+		ClienteDetalhadoResponse ClienteDetalhado = clienteService.buscaClienteAtravesCnpj(cnpj);
+		log.info("[Finaliza] Cliente Controller - getAtravesCnpj");
+		return null;
+	}
 }

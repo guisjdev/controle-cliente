@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import br.com.eunapolisextintores.controlecliente.application.api.ClienteDetalhadoResponse;
 import br.com.eunapolisextintores.controlecliente.application.api.ClienteListResponse;
 import br.com.eunapolisextintores.controlecliente.application.api.ClienteRequest;
 import br.com.eunapolisextintores.controlecliente.application.api.ClienteResponse;
@@ -35,6 +36,13 @@ public class ClienteApplicationService implements ClienteService {
 		List<Cliente> clientes = clienteRepository.buscaTodosClientes();
 		log.info("[Finaliza] ClienteAplicationService - buscaTodosClientes");
 		return ClienteListResponse.convert(clientes);
+	}
+
+	@Override
+	public ClienteDetalhadoResponse buscaClienteAtravesCnpj(String cnpj) {
+		log.info("[inicia] ClienteAplicationService - buscaClienteAtravesCnpj");
+		log.info("[Finaliza] ClienteAplicationService - buscaClienteAtravesCnpj");
+		return null;
 	}
 
 }
