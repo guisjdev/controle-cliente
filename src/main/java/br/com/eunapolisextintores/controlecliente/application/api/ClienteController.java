@@ -1,5 +1,7 @@
 package br.com.eunapolisextintores.controlecliente.application.api;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.eunapolisextintores.controlecliente.application.service.ClienteService;
@@ -19,5 +21,12 @@ public class ClienteController implements ClienteAPI {
 		ClienteResponse clienteCriado = clienteService.criaCliente(clienteRequest);
 		log.info("[Finaliza] Cliente Controller - postCliente");
 		return clienteCriado;
+	}
+
+	@Override
+	public List<ClienteListResponse> getTodosClientes() {
+		log.info("[Inicia] Cliente Controller - getTodosClientes");
+		log.info("[Finaliza] Cliente Controller - getTodosClientes");		
+		return null;
 	}
 }
