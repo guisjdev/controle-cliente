@@ -21,6 +21,6 @@ public interface ClienteAPI {
 	ClienteResponse postCliente (@Valid @RequestBody ClienteRequest clienteRequest);
 
 	@GetMapping
-	@ResponseStatus(code = HttpStatus.CREATED)
+	@ResponseStatus(code = HttpStatus.OK)
 	List<ClienteListResponse> getTodosClientes ();
 }

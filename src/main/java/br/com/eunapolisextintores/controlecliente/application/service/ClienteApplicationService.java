@@ -1,7 +1,10 @@
 package br.com.eunapolisextintores.controlecliente.application.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import br.com.eunapolisextintores.controlecliente.application.api.ClienteListResponse;
 import br.com.eunapolisextintores.controlecliente.application.api.ClienteRequest;
 import br.com.eunapolisextintores.controlecliente.application.api.ClienteResponse;
 import br.com.eunapolisextintores.controlecliente.application.repository.ClienteRepository;
@@ -24,6 +27,14 @@ public class ClienteApplicationService implements ClienteService {
 		return ClienteResponse.builder()
 			.idCliente(cliente.getIdCliente())
 			.build();
+	}
+
+	@Override
+	public List<ClienteListResponse> buscaTodosClientes() {
+		log.info("[Inicia] ClienteAplicationService - buscaTodosClientes");
+		List<Cliente> clientes = clienteRepository.buscaTodosClientes();
+		log.info("[Finaliza] ClienteAplicationService - buscaTodosClientes");
+		return ClienteListResponse.convert(clientes);
 	}
 
 }

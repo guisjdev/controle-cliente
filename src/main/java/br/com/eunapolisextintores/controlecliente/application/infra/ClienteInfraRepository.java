@@ -1,5 +1,7 @@
 package br.com.eunapolisextintores.controlecliente.application.infra;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.eunapolisextintores.controlecliente.application.repository.ClienteRepository;
@@ -20,6 +22,14 @@ public class ClienteInfraRepository implements ClienteRepository {
 		clienteSpringDataJPARepository.save(cliente);
 		log.info("[Finaliza] ClienteInfraRepository - salva");
 		return cliente;
+	}
+
+	@Override
+	public List<Cliente> buscaTodosClientes() {
+		log.info("[inicia] ClienteInfraRepository - buscaTodosClientes");
+		List<Cliente> todosClientes = clienteSpringDataJPARepository.findAll();
+		log.info("[Finaliza] ClienteInfraRepository - buscaTodosClientes");
+		return todosClientes;
 	}
 
 }

@@ -1,7 +1,10 @@
 package br.com.eunapolisextintores.controlecliente.application.api;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
+import br.com.eunapolisextintores.controlecliente.domain.Cliente;
 import lombok.Value;
 
 @Value
@@ -11,4 +14,19 @@ public class ClienteListResponse {
 	private String cnpj;
 	private String logradouro;
 	private String cidade;
+	
+	public static List<ClienteListResponse> convert(List<Cliente> clientes) {
+		return clientes.stream()
+				.map(ClienteListResponse::new)
+				.collect(Collectors.toList());
+	}
+
+	public ClienteListResponse(Cliente cliente) {
+		this.idCliente = cliente.getIdCliente();
+		this.nome = cliente.getNome();
+		this.cnpj = cliente.getCnpj();
+		this.logradouro = cliente.getLogradouro();
+		this.cidade = cliente.getCidade();
+	}
+	
 }
