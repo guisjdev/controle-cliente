@@ -5,6 +5,7 @@ import java.util.UUID;
 import org.hibernate.validator.constraints.br.CNPJ;
 
 import br.com.eunapolisextintores.controlecliente.application.api.ClienteRequest;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,8 +25,8 @@ public class Cliente {
 	private UUID idCliente;
 	@NotBlank
 	private String nome;
-	@NotBlank
 	@CNPJ
+	@Column(unique = true)
 	private String cnpj;
 	@NotBlank
 	private String logradouro;
@@ -33,6 +34,8 @@ public class Cliente {
 	private String cidade;
 	@NotBlank
 	private String whatsapp;
+	//@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	//private List<Recarga> recargas;
 	
 	public Cliente (ClienteRequest clienteRequest){
 		
@@ -42,15 +45,5 @@ public class Cliente {
 		this.cidade = clienteRequest.getCidade();
 		this.whatsapp = clienteRequest.getWhatsapp();
 	}
-	
-	public Cliente(@NotBlank String nome, @NotBlank @CNPJ String cnpj, @NotBlank String logradouro,
-			@NotBlank String cidade, @NotBlank String whatsapp) {
-	
-		this.nome = nome;
-		this.cnpj = cnpj;
-		this.logradouro = logradouro;
-		this.cidade = cidade;
-		this.whatsapp = whatsapp;
-	}
-	
+
 }

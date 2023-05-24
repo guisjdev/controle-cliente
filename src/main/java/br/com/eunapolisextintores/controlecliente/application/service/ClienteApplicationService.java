@@ -22,9 +22,9 @@ public class ClienteApplicationService implements ClienteService {
 
 	@Override
 	public ClienteResponse criaCliente(ClienteRequest clienteRequest) {
-		log.info("[inicia] ClienteAplicationService - criaCliente");
-		Cliente cliente = clienteRepository.salva(new Cliente(clienteRequest));
-		log.info("[Finaliza] ClienteAplicationService - criaCliente");
+		log.info("[inicia] ClienteApplicationService - criaCliente");
+		Cliente cliente = clienteRepository.save(new Cliente(clienteRequest));
+		log.info("[Finaliza] ClienteApplicationService - criaCliente");
 		return ClienteResponse.builder()
 			.idCliente(cliente.getIdCliente())
 			.build();
@@ -32,17 +32,18 @@ public class ClienteApplicationService implements ClienteService {
 
 	@Override
 	public List<ClienteListResponse> buscaTodosClientes() {
-		log.info("[Inicia] ClienteAplicationService - buscaTodosClientes");
+		log.info("[Inicia] ClienteApplicationService - buscaTodosClientes");
 		List<Cliente> clientes = clienteRepository.buscaTodosClientes();
-		log.info("[Finaliza] ClienteAplicationService - buscaTodosClientes");
+		log.info("[Finaliza] ClienteApplicationService - buscaTodosClientes");
 		return ClienteListResponse.convert(clientes);
 	}
 
 	@Override
 	public ClienteDetalhadoResponse buscaClienteAtravesCnpj(String cnpj) {
-		log.info("[inicia] ClienteAplicationService - buscaClienteAtravesCnpj");
-		log.info("[Finaliza] ClienteAplicationService - buscaClienteAtravesCnpj");
-		return null;
+		log.info("[inicia] ClienteApplicationService - buscaClienteAtravesCnpj");
+		Cliente cliente = clienteRepository.buscaClienteAtravesCnpj(cnpj);
+		log.info("[Finaliza] ClienteApplicationService - buscaClienteAtravesCnpj");
+		return new ClienteDetalhadoResponse(cliente);
 	}
 
 }

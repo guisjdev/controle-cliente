@@ -2,10 +2,13 @@ package br.com.eunapolisextintores.controlecliente.application.infra;
 
 import java.util.List;
 
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import br.com.eunapolisextintores.controlecliente.application.repository.ClienteRepository;
 import br.com.eunapolisextintores.controlecliente.domain.Cliente;
+import br.com.eunapolisextintores.controlecliente.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -15,12 +18,16 @@ import lombok.extern.log4j.Log4j2;
 public class ClienteInfraRepository implements ClienteRepository {
 
 	private final ClienteSpringDataJPARepository clienteSpringDataJPARepository;
-
+	
 	@Override
-	public Cliente salva(Cliente cliente) {
-		log.info("[inicia] ClienteInfraRepository - salva");
-		clienteSpringDataJPARepository.save(cliente);
-		log.info("[Finaliza] ClienteInfraRepository - salva");
+	public Cliente save(Cliente cliente) {
+		log.info("[inicia] ClienteInfraRepository - save");
+			try {
+				clienteSpringDataJPARepository.save(cliente);			
+			} catch (DataIntegrityViolationException e) {
+				throw APIException.build(HttpStatus.BAD_REQUEST, "Existem dados duplicados");
+			}
+		log.info("[Finaliza] ClienteInfraRepository - save");
 		return cliente;
 	}
 
@@ -30,6 +37,15 @@ public class ClienteInfraRepository implements ClienteRepository {
 		List<Cliente> todosClientes = clienteSpringDataJPARepository.findAll();
 		log.info("[Finaliza] ClienteInfraRepository - buscaTodosClientes");
 		return todosClientes;
+	}
+
+	@Override
+	public Cliente buscaClienteAtravesCnpj(String cnpj) {
+		log.info("[inicia] ClienteInfraRepository - buscaClienteAtravesCnpj");
+		Cliente cliente = (Cliente) clienteSpringDataJPARepository.findByCnpj(cnpj)
+				.orElseThrow(()-> APIException.build(HttpStatus.BAD_REQUEST, "Empresa não encontrada!"));
+		log.info("[finaliza] ClienteInfraRepository - buscaClienteAtravesCnpj");
+		return cliente;
 	}
 
 }

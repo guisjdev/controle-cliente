@@ -6,6 +6,7 @@ import br.com.eunapolisextintores.controlecliente.domain.Cliente;
 
 public interface ClienteRepository {
 
-	Cliente salva(Cliente cliente);
+	Cliente save(Cliente cliente);
 	List<Cliente> buscaTodosClientes();
+	Cliente buscaClienteAtravesCnpj(String cnpj);
 }

@@ -28,4 +28,8 @@ public interface ClienteAPI {
 	@GetMapping(value = "/{cnpj}")
 	@ResponseStatus(code = HttpStatus.OK)
 	ClienteDetalhadoResponse getAtravesCnpj(@PathVariable String cnpj);
+
+	@GetMapping(value = "/{cidade}")
+	@ResponseStatus(code = HttpStatus.OK)
+	ClienteDetalhadoResponse getAtravesCidade(@PathVariable String cidade);
 }

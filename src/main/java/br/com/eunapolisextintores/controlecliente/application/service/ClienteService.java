@@ -13,4 +13,5 @@ public interface ClienteService {
 	List<ClienteListResponse> buscaTodosClientes();
 	ClienteDetalhadoResponse buscaClienteAtravesCnpj(String cnpj);
 
+
 }

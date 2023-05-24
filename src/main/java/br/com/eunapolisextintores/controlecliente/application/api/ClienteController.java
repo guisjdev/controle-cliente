@@ -17,15 +17,15 @@ public class ClienteController implements ClienteAPI {
 	
 	@Override
 	public ClienteResponse postCliente(ClienteRequest clienteRequest) {
-		log.info("[Inicia] Cliente Controller - postCliente");
+		log.info("[Inicia] ClienteController - postCliente");
 		ClienteResponse clienteCriado = clienteService.criaCliente(clienteRequest);
-		log.info("[Finaliza] Cliente Controller - postCliente");
+		log.info("[Finaliza] ClienteController - postCliente");
 		return clienteCriado;
 	}
 
 	@Override
 	public List<ClienteListResponse> getTodosClientes() {
-		log.info("[Inicia] Cliente Controller - getTodosClientes");
+		log.info("[Inicia] ClienteController - getTodosClientes");
 		List<ClienteListResponse> clientes = clienteService.buscaTodosClientes();
 		log.info("[Finaliza] Cliente Controller - getTodosClientes");		
 		return clientes;
@@ -33,10 +33,18 @@ public class ClienteController implements ClienteAPI {
 
 	@Override
 	public ClienteDetalhadoResponse getAtravesCnpj(String cnpj) {
-		log.info("[Inicia] Cliente Controller - getAtravesCnpj");
-		log.info("[CNPJ] {}", cnpj);
-		ClienteDetalhadoResponse ClienteDetalhado = clienteService.buscaClienteAtravesCnpj(cnpj);
-		log.info("[Finaliza] Cliente Controller - getAtravesCnpj");
+		log.info("[Inicia] ClienteController - getAtravesCnpj");
+		log.info("[cnpj] {}", cnpj);
+		ClienteDetalhadoResponse ClienteDetalhadoPorCnpj = clienteService.buscaClienteAtravesCnpj(cnpj);
+		log.info("[Finaliza] ClienteController - getAtravesCnpj");
+		return ClienteDetalhadoPorCnpj;
+	}
+
+	@Override
+	public ClienteDetalhadoResponse getAtravesCidade(String cidade) {
+		log.info("[Inicia] ClienteController - getAtravesCidade");
+		log.info("[cnpj] {}", cnpj);
+		log.info("[Finaliza] ClienteController - getAtravesCidade");
 		return null;
 	}
 }
