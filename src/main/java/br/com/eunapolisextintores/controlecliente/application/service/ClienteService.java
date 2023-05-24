@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.eunapolisextintores.controlecliente.application.api.ClienteDetalhadoResponse;
 import br.com.eunapolisextintores.controlecliente.application.api.ClienteListResponse;
+import br.com.eunapolisextintores.controlecliente.application.api.ClientePorCidadeResponse;
 import br.com.eunapolisextintores.controlecliente.application.api.ClienteRequest;
 import br.com.eunapolisextintores.controlecliente.application.api.ClienteResponse;
 
@@ -12,6 +13,7 @@ public interface ClienteService {
 	ClienteResponse criaCliente(ClienteRequest clienteRequest);
 	List<ClienteListResponse> buscaTodosClientes();
 	ClienteDetalhadoResponse buscaClienteAtravesCnpj(String cnpj);
+	ClientePorCidadeResponse buscaClientesAtravesCidade(String cidade);
 
 
 }

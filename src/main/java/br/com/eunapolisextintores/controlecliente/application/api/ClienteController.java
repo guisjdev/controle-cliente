@@ -41,10 +41,11 @@ public class ClienteController implements ClienteAPI {
 	}
 
 	@Override
-	public ClienteDetalhadoResponse getAtravesCidade(String cidade) {
+	public ClientePorCidadeResponse getAtravesCidade(String cidade) {
 		log.info("[Inicia] ClienteController - getAtravesCidade");
-		log.info("[cnpj] {}", cnpj);
+		log.info("[cidade] {}", cidade);
+		ClientePorCidadeResponse clientesDetalhadosPorCidade = clienteService.buscaClientesAtravesCidade(cidade);
 		log.info("[Finaliza] ClienteController - getAtravesCidade");
-		return null;
+		return clientesDetalhadosPorCidade;
 	}
 }

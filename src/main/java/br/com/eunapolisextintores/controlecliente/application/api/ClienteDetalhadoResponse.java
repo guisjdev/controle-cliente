@@ -11,8 +11,7 @@ public class ClienteDetalhadoResponse {
 	private String nome;
 	private String cnpj;
 	private String logradouro;
-	private String cidade;
-	private String whatsapp;
+	private String cidade;	
 
 	public ClienteDetalhadoResponse(Cliente cliente) {
 		this.idCliente = cliente.getIdCliente();
@@ -20,6 +19,5 @@ public class ClienteDetalhadoResponse {
 		this.cnpj = cliente.getCnpj();
 		this.logradouro = cliente.getLogradouro();
 		this.cidade = cliente.getCidade();
-		this.whatsapp = cliente.getWhatsapp();
 	}
 }
