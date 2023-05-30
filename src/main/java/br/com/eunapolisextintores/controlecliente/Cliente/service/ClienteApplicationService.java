@@ -1,16 +1,15 @@
-package br.com.eunapolisextintores.controlecliente.application.service;
+package br.com.eunapolisextintores.controlecliente.Cliente.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.com.eunapolisextintores.controlecliente.application.api.ClienteDetalhadoResponse;
-import br.com.eunapolisextintores.controlecliente.application.api.ClienteListResponse;
-import br.com.eunapolisextintores.controlecliente.application.api.ClientePorCidadeResponse;
-import br.com.eunapolisextintores.controlecliente.application.api.ClienteRequest;
-import br.com.eunapolisextintores.controlecliente.application.api.ClienteResponse;
-import br.com.eunapolisextintores.controlecliente.application.repository.ClienteRepository;
-import br.com.eunapolisextintores.controlecliente.domain.Cliente;
+import br.com.eunapolisextintores.controlecliente.Cliente.api.ClienteDetalhadoResponse;
+import br.com.eunapolisextintores.controlecliente.Cliente.api.ClienteListResponse;
+import br.com.eunapolisextintores.controlecliente.Cliente.api.ClienteRequest;
+import br.com.eunapolisextintores.controlecliente.Cliente.api.ClienteResponse;
+import br.com.eunapolisextintores.controlecliente.Cliente.domain.Cliente;
+import br.com.eunapolisextintores.controlecliente.Cliente.repository.ClienteRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -47,11 +46,12 @@ public class ClienteApplicationService implements ClienteService {
 		return new ClienteDetalhadoResponse(cliente);
 	}
 
-	@Override
-	public ClientePorCidadeResponse buscaClientesAtravesCidade(String cidade) {
-		log.info("[inicia] ClienteApplicationService - buscaClientesAtravesCidade");
-		log.info("[inicia] ClienteApplicationService - buscaClientesAtravesCidade");
-		return null;
-	}
+//	@Override
+//	public List<ClientesPorCidade> buscaTodosClientesCidade(String cidade) {
+//		log.info("[inicia] ClienteApplicationService - buscaClientesAtravesCidade");
+//		List<ClientesPorCidade> clientesCidade = clienteRepository.buscaTodosClientesCidade(cidade);
+//		log.info("[inicia] ClienteApplicationService - buscaClientesAtravesCidade");
+//		return ClientesPorCidade.convert(clientesCidade);
+//	}
 
 }

@@ -1,10 +1,10 @@
-package br.com.eunapolisextintores.controlecliente.application.api;
+package br.com.eunapolisextintores.controlecliente.Cliente.api;
 
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.eunapolisextintores.controlecliente.application.service.ClienteService;
+import br.com.eunapolisextintores.controlecliente.Cliente.service.ClienteService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -40,12 +40,12 @@ public class ClienteController implements ClienteAPI {
 		return ClienteDetalhadoPorCnpj;
 	}
 
-	@Override
-	public ClientePorCidadeResponse getAtravesCidade(String cidade) {
-		log.info("[Inicia] ClienteController - getAtravesCidade");
-		log.info("[cidade] {}", cidade);
-		ClientePorCidadeResponse clientesDetalhadosPorCidade = clienteService.buscaClientesAtravesCidade(cidade);
-		log.info("[Finaliza] ClienteController - getAtravesCidade");
-		return clientesDetalhadosPorCidade;
-	}
+//	@Override
+//	public List<ClientesPorCidade> getAtravesCidade(String cidade) {
+//		log.info("[Inicia] ClienteController - buscaAtravesCidade");
+//		log.info("[CIDADE] {}", cidade);
+//		List<ClientesPorCidade> clientesPorCidade = clienteService.buscaTodosClientesCidade(cidade);
+//		log.info("[Finaliza] ClienteController - buscaAtravesCidade");
+//		return clientesPorCidade;
+//	}
 }

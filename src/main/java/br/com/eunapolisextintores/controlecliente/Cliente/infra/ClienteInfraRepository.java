@@ -1,4 +1,4 @@
-package br.com.eunapolisextintores.controlecliente.application.infra;
+package br.com.eunapolisextintores.controlecliente.Cliente.infra;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
-import br.com.eunapolisextintores.controlecliente.application.repository.ClienteRepository;
-import br.com.eunapolisextintores.controlecliente.domain.Cliente;
+import br.com.eunapolisextintores.controlecliente.Cliente.domain.Cliente;
+import br.com.eunapolisextintores.controlecliente.Cliente.repository.ClienteRepository;
 import br.com.eunapolisextintores.controlecliente.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -47,5 +47,12 @@ public class ClienteInfraRepository implements ClienteRepository {
 		log.info("[finaliza] ClienteInfraRepository - buscaClienteAtravesCnpj");
 		return cliente;
 	}
+
+//	@Override
+//	public List<ClientesPorCidade> buscaTodosClientesCidade(String cidade) {
+//		log.info("[inicia] ClienteInfraRepository - buscaClientesAtravesCidade");
+//		log.info("[Finaliza] ClienteInfraRepository - buscaClientesAtravesCidade");
+//		return null;
+//	}
 
 }

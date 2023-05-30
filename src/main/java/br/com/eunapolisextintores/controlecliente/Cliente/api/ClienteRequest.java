@@ -1,4 +1,4 @@
-package br.com.eunapolisextintores.controlecliente.application.api;
+package br.com.eunapolisextintores.controlecliente.Cliente.api;
 
 import org.hibernate.validator.constraints.br.CNPJ;
 

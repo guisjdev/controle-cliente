@@ -1,10 +1,10 @@
-package br.com.eunapolisextintores.controlecliente.domain;
+package br.com.eunapolisextintores.controlecliente.Cliente.domain;
 
 import java.util.UUID;
 
 import org.hibernate.validator.constraints.br.CNPJ;
 
-import br.com.eunapolisextintores.controlecliente.application.api.ClienteRequest;
+import br.com.eunapolisextintores.controlecliente.Cliente.api.ClienteRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -45,5 +45,4 @@ public class Cliente {
 		this.cidade = clienteRequest.getCidade();
 		this.whatsapp = clienteRequest.getWhatsapp();
 	}
-
 }

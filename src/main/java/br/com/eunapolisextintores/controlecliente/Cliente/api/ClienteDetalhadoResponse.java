@@ -1,8 +1,8 @@
-package br.com.eunapolisextintores.controlecliente.application.api;
+package br.com.eunapolisextintores.controlecliente.Cliente.api;
 
 import java.util.UUID;
 
-import br.com.eunapolisextintores.controlecliente.domain.Cliente;
+import br.com.eunapolisextintores.controlecliente.Cliente.domain.Cliente;
 import lombok.Value;
 
 @Value

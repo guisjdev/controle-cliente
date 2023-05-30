@@ -1,4 +1,4 @@
-package br.com.eunapolisextintores.controlecliente.application.api;
+package br.com.eunapolisextintores.controlecliente.Cliente.api;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ public interface ClienteAPI {
 	@ResponseStatus(code = HttpStatus.OK)
 	ClienteDetalhadoResponse getAtravesCnpj(@PathVariable String cnpj);
 
-	@GetMapping(value = "/{cnpj}/{cidade}")
-	@ResponseStatus(code = HttpStatus.OK)
-	ClientePorCidadeResponse getAtravesCidade(@PathVariable String cidade);
+//	@GetMapping(value = "/{cidade}")
+//	@ResponseStatus(code = HttpStatus.OK)
+//	List<ClientesPorCidade> getAtravesCidade (@RequestParam String cidade);
 }
