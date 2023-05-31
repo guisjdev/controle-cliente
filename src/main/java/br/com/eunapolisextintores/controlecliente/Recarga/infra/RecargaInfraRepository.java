@@ -2,8 +2,8 @@ package br.com.eunapolisextintores.controlecliente.Recarga.infra;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.eunapolisextintores.controlecliente.Recarga.application.service.RecargaRepository;
 import br.com.eunapolisextintores.controlecliente.Recarga.domain.Recarga;
+import br.com.eunapolisextintores.controlecliente.Recarga.repository.RecargaRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 

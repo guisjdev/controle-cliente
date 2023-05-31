@@ -1,11 +1,11 @@
-package br.com.eunapolisextintores.controlecliente.Recarga.application.service;
+package br.com.eunapolisextintores.controlecliente.Recarga.Service;
 
 import org.springframework.stereotype.Service;
 
 import br.com.eunapolisextintores.controlecliente.Recarga.api.RecargaRequest;
 import br.com.eunapolisextintores.controlecliente.Recarga.api.RecargaResponse;
-import br.com.eunapolisextintores.controlecliente.Recarga.api.RecargaService;
 import br.com.eunapolisextintores.controlecliente.Recarga.domain.Recarga;
+import br.com.eunapolisextintores.controlecliente.Recarga.repository.RecargaRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 

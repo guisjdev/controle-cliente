@@ -2,6 +2,7 @@ package br.com.eunapolisextintores.controlecliente.Recarga.api;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.eunapolisextintores.controlecliente.Recarga.Service.RecargaService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

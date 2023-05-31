@@ -1,4 +1,4 @@
-package br.com.eunapolisextintores.controlecliente.Recarga.application.service;
+package br.com.eunapolisextintores.controlecliente.Recarga.repository;
 
 import br.com.eunapolisextintores.controlecliente.Recarga.domain.Recarga;
 
