@@ -17,4 +17,5 @@ public class RecargaRequest {
 	private Tipo tipo;
 	@NotNull
 	private LocalDate dataVencimento;
+		
 }

@@ -3,6 +3,7 @@ package br.com.eunapolisextintores.controlecliente.Recarga.domain;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import br.com.eunapolisextintores.controlecliente.Recarga.api.RecargaRequest;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,7 +23,13 @@ import lombok.ToString;
 	@AllArgsConstructor (access = AccessLevel.PRIVATE)
 	@Getter
 	@ToString
-	public class Recargas {
+	public class Recarga {
+		public Recarga(RecargaRequest recargaRequest) {
+			this.apelido = recargaRequest.getApelido();
+			this.peso = recargaRequest.getPeso();
+			this.tipo = recargaRequest.getTipo();
+			this.dataVencimento = recargaRequest.getDataVencimento();
+		}
 		@Id
 		@GeneratedValue (strategy = GenerationType.AUTO)
 		private UUID idRecarga;
