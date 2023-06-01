@@ -1,15 +1,19 @@
 package br.com.eunapolisextintores.controlecliente.Cliente.domain;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.hibernate.validator.constraints.br.CNPJ;
 
 import br.com.eunapolisextintores.controlecliente.Cliente.api.ClienteRequest;
+import br.com.eunapolisextintores.controlecliente.Recarga.domain.Recarga;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -34,8 +38,8 @@ public class Cliente {
 	private String cidade;
 	@NotBlank
 	private String whatsapp;
-	//@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	//private List<Recarga> recargas;
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Recarga> recargas;
 	
 	public Cliente (ClienteRequest clienteRequest){
 		
@@ -44,5 +48,6 @@ public class Cliente {
 		this.logradouro = clienteRequest.getLogradouro();
 		this.cidade = clienteRequest.getCidade();
 		this.whatsapp = clienteRequest.getWhatsapp();
+		this.recargas = clienteRequest.getRecargas();
 	}
 }

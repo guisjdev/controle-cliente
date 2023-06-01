@@ -5,6 +5,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import br.com.eunapolisextintores.controlecliente.Cliente.domain.Cliente;
+import br.com.eunapolisextintores.controlecliente.Recarga.domain.Recarga;
 import lombok.Value;
 
 @Value
@@ -14,6 +15,7 @@ public class ClienteListResponse {
 	private String cnpj;
 	private String logradouro;
 	private String cidade;
+	private List<Recarga> recargas;
 	
 	public static List<ClienteListResponse> convert(List<Cliente> clientes) {
 		return clientes.stream()
@@ -27,6 +29,7 @@ public class ClienteListResponse {
 		this.cnpj = cliente.getCnpj();
 		this.logradouro = cliente.getLogradouro();
 		this.cidade = cliente.getCidade();
+		this.recargas = cliente.getRecargas();
 	}
 	
 }
