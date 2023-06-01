@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.hibernate.validator.constraints.br.CNPJ;
 
+import br.com.eunapolisextintores.controlecliente.Cliente.api.ClienteAteracaoRequest;
 import br.com.eunapolisextintores.controlecliente.Cliente.api.ClienteRequest;
 import br.com.eunapolisextintores.controlecliente.Recarga.domain.Recarga;
 import jakarta.persistence.CascadeType;
@@ -50,4 +51,12 @@ public class Cliente {
 		this.whatsapp = clienteRequest.getWhatsapp();
 		this.recargas = clienteRequest.getRecargas();
 	}
+
+	public void alteraCliente(ClienteAteracaoRequest alteraCliente) {
+		this.nome = alteraCliente.getNome();
+		this.logradouro = alteraCliente.getLogradouro();
+		this.cidade = alteraCliente.getCidade();
+		this.whatsapp = alteraCliente.getWhatsapp();
+	}
+		
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.eunapolisextintores.controlecliente.Cliente.service.ClienteService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -46,6 +47,15 @@ public class ClienteController implements ClienteAPI {
 		log.info("[cnpj] {}", cnpj);
 		clienteService.deletaClienteByCnpj(cnpj);
 		log.info("[Finaliza] deletaClienteByCnpj - deletaCliente");
+		
+	}
+
+	@Override
+	public void PatchCliente(String cnpj, @Valid ClienteAteracaoRequest clienteAlteracaoRequest) {
+		log.info("[Inicia] PatchCliente - alteraçãoCliente");
+		log.info("[cnpj] {}", cnpj);
+		clienteService.patchCliente(cnpj, clienteAlteracaoRequest);
+		log.info("[Inicia] PatchCliente - alteraçãoCliente");
 		
 	}
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import br.com.eunapolisextintores.controlecliente.Cliente.api.ClienteAteracaoRequest;
 import br.com.eunapolisextintores.controlecliente.Cliente.api.ClienteDetalhadoResponse;
 import br.com.eunapolisextintores.controlecliente.Cliente.api.ClienteListResponse;
 import br.com.eunapolisextintores.controlecliente.Cliente.api.ClienteRequest;
@@ -52,6 +53,16 @@ public class ClienteApplicationService implements ClienteService {
 		Cliente cliente = clienteRepository.buscaClienteAtravesCnpj(cnpj);
 		clienteRepository.deletaCliente(cliente);
 		log.info("[Finaliza] deletaClienteByCnpj - deletaCliente");
+		
+	}
+
+	@Override
+	public void patchCliente(String cnpj, ClienteAteracaoRequest clienteAlteracaoRequest) {
+		log.info("[Inicia] patchCliente - alteraCliente");		
+		Cliente cliente = clienteRepository.buscaClienteAtravesCnpj(cnpj);
+		cliente.alteraCliente(clienteAlteracaoRequest);	
+		clienteRepository.save(cliente);
+		log.info("[Finaliza] patchCliente - alteraCliente");		
 		
 	}
 

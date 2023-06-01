@@ -56,6 +56,14 @@ public class ClienteInfraRepository implements ClienteRepository {
 		
 	}
 
+	@Override
+	public void alteraCliente(Cliente clienteAlterado) {
+		log.info("[Inicia] alteraCliente - SalvaAlteracao");
+		clienteSpringDataJPARepository.save(clienteAlterado);
+		log.info("[Finaliza] alteraCliente - SalvaAlteracao");
+		
+	} 
+
 //	@Override
 //	public List<ClientesPorCidade> buscaTodosClientesCidade(String cidade) {
 //		log.info("[inicia] ClienteInfraRepository - buscaClientesAtravesCidade");

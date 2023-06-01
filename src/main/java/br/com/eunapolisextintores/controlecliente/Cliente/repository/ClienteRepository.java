@@ -11,6 +11,7 @@ public interface ClienteRepository {
 	Cliente buscaClienteAtravesCnpj(String cnpj);
 //	List<ClientesPorCidade> buscaTodosClientesCidade(String cidade);
 	void deletaCliente(Cliente cliente);
+	void alteraCliente(Cliente clienteAlterado);
 	
 	
 }
