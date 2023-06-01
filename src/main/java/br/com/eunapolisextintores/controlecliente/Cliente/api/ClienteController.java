@@ -40,6 +40,15 @@ public class ClienteController implements ClienteAPI {
 		return ClienteDetalhadoPorCnpj;
 	}
 
+	@Override
+	public void deletaClienteByCnpj(String cnpj) {
+		log.info("[Inicia] deletaClienteByCnpj - deletaCliente");
+		log.info("[cnpj] {}", cnpj);
+		clienteService.deletaClienteByCnpj(cnpj);
+		log.info("[Finaliza] deletaClienteByCnpj - deletaCliente");
+		
+	}
+
 //	@Override
 //	public List<ClientesPorCidade> getAtravesCidade(String cidade) {
 //		log.info("[Inicia] ClienteController - buscaAtravesCidade");

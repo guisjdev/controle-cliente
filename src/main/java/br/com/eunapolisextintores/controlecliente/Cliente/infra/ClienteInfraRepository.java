@@ -48,6 +48,14 @@ public class ClienteInfraRepository implements ClienteRepository {
 		return cliente;
 	}
 
+	@Override
+	public void deletaCliente(Cliente cliente) {
+		log.info("[Inicia] deletaClienteByCnpj - deletaCliente");
+		clienteSpringDataJPARepository.delete(cliente);
+		log.info("[Finaliza] deletaClienteByCnpj - deletaCliente");
+		
+	}
+
 //	@Override
 //	public List<ClientesPorCidade> buscaTodosClientesCidade(String cidade) {
 //		log.info("[inicia] ClienteInfraRepository - buscaClientesAtravesCidade");

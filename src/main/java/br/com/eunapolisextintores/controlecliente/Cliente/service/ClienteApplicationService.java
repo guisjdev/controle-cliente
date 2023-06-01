@@ -46,6 +46,15 @@ public class ClienteApplicationService implements ClienteService {
 		return new ClienteDetalhadoResponse(cliente);
 	}
 
+	@Override
+	public void deletaClienteByCnpj(String cnpj) {
+		log.info("[Inicia] deletaClienteByCnpj - deletaCliente");		
+		Cliente cliente = clienteRepository.buscaClienteAtravesCnpj(cnpj);
+		clienteRepository.deletaCliente(cliente);
+		log.info("[Finaliza] deletaClienteByCnpj - deletaCliente");
+		
+	}
+
 //	@Override
 //	public List<ClientesPorCidade> buscaTodosClientesCidade(String cidade) {
 //		log.info("[inicia] ClienteApplicationService - buscaClientesAtravesCidade");

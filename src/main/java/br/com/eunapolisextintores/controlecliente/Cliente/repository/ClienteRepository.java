@@ -10,6 +10,7 @@ public interface ClienteRepository {
 	List<Cliente> buscaTodosClientes();
 	Cliente buscaClienteAtravesCnpj(String cnpj);
 //	List<ClientesPorCidade> buscaTodosClientesCidade(String cidade);
+	void deletaCliente(Cliente cliente);
 	
 	
 }
