@@ -15,6 +15,7 @@ public class ClienteListResponse {
 	private String cnpj;
 	private String logradouro;
 	private String cidade;
+	private String whatsapp;
 	private List<Recarga> recargas;
 	
 	public static List<ClienteListResponse> convert(List<Cliente> clientes) {
@@ -22,13 +23,30 @@ public class ClienteListResponse {
 				.map(ClienteListResponse::new)
 				.collect(Collectors.toList());
 	}
+	public static List<ClienteListResponse> converte(List<ClienteListResponse> clientes) {
+		return clientes.stream()
+				.map(ClienteListResponse::new)
+				.collect(Collectors.toList());
+	}
 
 	public ClienteListResponse(Cliente cliente) {
+		
 		this.idCliente = cliente.getIdCliente();
 		this.nome = cliente.getNome();
 		this.cnpj = cliente.getCnpj();
 		this.logradouro = cliente.getLogradouro();
 		this.cidade = cliente.getCidade();
+		this.recargas = cliente.getRecargas();
+		this.whatsapp = cliente.getWhatsapp();
+	}
+	
+	public ClienteListResponse(ClienteListResponse cliente) {
+		this.idCliente = cliente.getIdCliente();
+		this.nome = cliente.getNome();
+		this.cnpj = cliente.getCnpj();
+		this.logradouro = cliente.getLogradouro();
+		this.cidade = cliente.getCidade();
+		this.whatsapp = cliente.getWhatsapp();
 		this.recargas = cliente.getRecargas();
 	}
 	

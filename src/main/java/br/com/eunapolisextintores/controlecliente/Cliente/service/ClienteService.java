@@ -13,8 +13,8 @@ public interface ClienteService {
 	ClienteResponse criaCliente(ClienteRequest clienteRequest);
 	List<ClienteListResponse> buscaTodosClientes();
 	ClienteDetalhadoResponse buscaClienteAtravesCnpj(String cnpj);
-//	List<ClientesPorCidade> buscaTodosClientesCidade(String cidade);
 	void deletaClienteByCnpj(String cnpj);
 	void patchCliente(String cnpj, ClienteAteracaoRequest clienteAlteracaoRequest);
+	List<ClienteListResponse> buscaTodosClientes(String cidade);
 
 }

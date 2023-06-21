@@ -20,6 +20,7 @@ import lombok.extern.log4j.Log4j2;
 public class ClienteApplicationService implements ClienteService {
 
 	private final ClienteRepository clienteRepository;
+	//private final ClienteService clienteService;
 
 	@Override
 	public ClienteResponse criaCliente(ClienteRequest clienteRequest) {
@@ -66,12 +67,15 @@ public class ClienteApplicationService implements ClienteService {
 		
 	}
 
-//	@Override
-//	public List<ClientesPorCidade> buscaTodosClientesCidade(String cidade) {
-//		log.info("[inicia] ClienteApplicationService - buscaClientesAtravesCidade");
-//		List<ClientesPorCidade> clientesCidade = clienteRepository.buscaTodosClientesCidade(cidade);
-//		log.info("[inicia] ClienteApplicationService - buscaClientesAtravesCidade");
-//		return ClientesPorCidade.convert(clientesCidade);
-//	}
+	@Override
+	public List<ClienteListResponse>  buscaTodosClientes(String cidade) {
+		log.info("[inicia] ClienteApplicationService - buscaTodosClientes");
+		log.info("[cidade] {}", cidade);
+		clienteRepository.buscaTodosClientes();
+		List<ClienteListResponse> clientes  = clienteRepository.buscaTodosClientes(cidade);
+		log.info("[Finaliza] ClienteApplicationService - buscaTodosClientes");
+		return ClienteListResponse.converte(clientes);
+		
+	}
 
 }

@@ -21,28 +21,26 @@ public interface ClienteAPI {
 
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	ClienteResponse postCliente (@Valid @RequestBody ClienteRequest clienteRequest);
+	ClienteResponse postCliente(@Valid @RequestBody ClienteRequest clienteRequest);
 
 	@GetMapping
 	@ResponseStatus(code = HttpStatus.OK)
 	List<ClienteListResponse> getTodosClientes();
-	
+
 	@GetMapping(value = "/{cnpj}")
 	@ResponseStatus(code = HttpStatus.OK)
 	ClienteDetalhadoResponse getAtravesCnpj(@PathVariable String cnpj);
-	
+
 	@DeleteMapping(value = "/{cnpj}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	void deletaClienteByCnpj (@PathVariable String cnpj);
-	
+	void deletaClienteByCnpj(@PathVariable String cnpj);
+
 	@PatchMapping(value = "/{cnpj}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	void PatchCliente (@PathVariable String cnpj,
 			@Valid @RequestBody ClienteAteracaoRequest clienteAlteracaoRequest);
-	
-	
 
-//	@GetMapping(value = "/{cidade}")
-//	@ResponseStatus(code = HttpStatus.OK)
-//	List<ClientesPorCidade> getAtravesCidade (@RequestParam String cidade);
+	@GetMapping(value = "/{cidade}/")
+	@ResponseStatus(code = HttpStatus.OK)
+	List<ClienteListResponse> buscaPorCidade(@PathVariable String cidade);
 }

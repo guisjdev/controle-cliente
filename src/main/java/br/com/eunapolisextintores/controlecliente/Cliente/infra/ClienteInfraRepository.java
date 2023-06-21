@@ -6,6 +6,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import br.com.eunapolisextintores.controlecliente.Cliente.api.ClienteListResponse;
 import br.com.eunapolisextintores.controlecliente.Cliente.domain.Cliente;
 import br.com.eunapolisextintores.controlecliente.Cliente.repository.ClienteRepository;
 import br.com.eunapolisextintores.controlecliente.handler.APIException;
@@ -64,11 +65,12 @@ public class ClienteInfraRepository implements ClienteRepository {
 		
 	} 
 
-//	@Override
-//	public List<ClientesPorCidade> buscaTodosClientesCidade(String cidade) {
-//		log.info("[inicia] ClienteInfraRepository - buscaClientesAtravesCidade");
-//		log.info("[Finaliza] ClienteInfraRepository - buscaClientesAtravesCidade");
-//		return null;
-//	}
+	@Override
+	public List<ClienteListResponse>  buscaTodosClientes(String cidade) {
+		log.info("[inicia] ClienteInfraRepository - buscaTodosClientes");
+		List<ClienteListResponse> clientesPorCidade = clienteSpringDataJPARepository.findByCidade(cidade);
+		log.info("[Finaliza] ClienteInfraRepository - buscaClientesAtravesCidade");
+		return clientesPorCidade;
+	}
 
 }

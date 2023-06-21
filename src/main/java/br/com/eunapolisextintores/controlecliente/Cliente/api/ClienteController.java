@@ -56,15 +56,14 @@ public class ClienteController implements ClienteAPI {
 		log.info("[cnpj] {}", cnpj);
 		clienteService.patchCliente(cnpj, clienteAlteracaoRequest);
 		log.info("[Inicia] PatchCliente - alteraçãoCliente");
-		
 	}
-
-//	@Override
-//	public List<ClientesPorCidade> getAtravesCidade(String cidade) {
-//		log.info("[Inicia] ClienteController - buscaAtravesCidade");
-//		log.info("[CIDADE] {}", cidade);
-//		List<ClientesPorCidade> clientesPorCidade = clienteService.buscaTodosClientesCidade(cidade);
-//		log.info("[Finaliza] ClienteController - buscaAtravesCidade");
-//		return clientesPorCidade;
-//	}
+		
+	@Override
+	public List<ClienteListResponse> buscaPorCidade(String cidade) {
+		log.info("[Inicia] ClienteController - buscaPorCidade");
+		log.info("[cidade] {}", cidade);
+		List<ClienteListResponse> clientes = clienteService.buscaTodosClientes(cidade);
+		log.info("[Finaliza] ClienteController - buscaPorCidade");
+		return clientes;
+	}
 }

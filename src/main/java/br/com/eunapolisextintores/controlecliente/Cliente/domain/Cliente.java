@@ -58,5 +58,4 @@ public class Cliente {
 		this.cidade = alteraCliente.getCidade();
 		this.whatsapp = alteraCliente.getWhatsapp();
 	}
-		
 }
